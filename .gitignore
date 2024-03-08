@@ -1,0 +1,7 @@
+venv/
+frontend/node_modules/
+backend/node_modules/
+backend/dist/
+coverage
+node_modules/
+flask/__pycache__/

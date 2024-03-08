@@ -1,0 +1,10 @@
+ipykernel
+pymongo
+alpaca-trade-api
+ipywidgets
+tensorflow
+scikit-learn
+gunicorn
+flask
+flask_cors
+numpy

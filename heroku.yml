@@ -1,0 +1,27 @@
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE
+  config:
+    # General configuration variables here
+    S3_BUCKET: my-example-bucket
+
+build:
+  docker:
+    web: frontend/Dockerfile
+    # Heroku's current platform does not support specifying multiple Dockerfiles for different processes in a single app.
+    # The example provided here assumes a primary 'web' process for illustration purposes.
+  config:
+    # Build-time environment variables
+    NODE_ENV: production
+
+release:
+  # Specify any release-phase tasks here. Typically, database migrations.
+  image: web
+  command:
+    - echo "Release phase commands here"
+
+run:
+  web: npm start -w frontend
+  # Heroku does not support running multiple services like a traditional docker-compose setup in a single app.
+  # You would typically run one service per Heroku app and link them together if needed.
